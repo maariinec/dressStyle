@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-lg">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+    <h1>  {{ title }}!   </h1>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav">
+        <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/login" routerLinkActive="active">Login</a>
+        <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/register" routerLinkActive="active">Register</a>
+        <a class="nav-link" style="cursor:pointer" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()" align="right">Logout</a>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

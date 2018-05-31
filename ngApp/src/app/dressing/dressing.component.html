@@ -1,0 +1,74 @@
+<app-header></app-header>
+
+<h2> Mon dressing </h2>
+
+<div class="d-flex justify-content-center">
+<button class="btn  dropdown-toggle" type="button" data-toggle="dropdown">Trier
+<span class="caret"></span></button>
+<ul class="dropdown-menu">
+    <li><a href="#">Saison</a></li>
+    <li><a href="#">Catégorie</a></li>
+    <li><a href="#">Date d'ajout</a></li>
+</ul>
+
+<button class="btn" type="button" data-toggle="modal" data-target="#exampleModal">Ajouter</button>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ajouter un vêtement</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+      <label for="photo">Photo</label><br>
+      <input [(ngModel)]="addDressingData.photo" type="file" name="img"><br>
+
+      <label for="categorie">Catégorie</label>
+      <input [(ngModel)]="addDressingData.categorie" type="text" class="form-control" id="categorie" placeholder="tee-shirt">
+
+      <label for="couleur">Couleur</label>
+      <input [(ngModel)]="addDressingData.couleur" type="text" class="form-control" id="couleur" placeholder="rouge">
+
+      <label for="motif">Motif</label>
+      <input [(ngModel)]="addDressingData.motif" type="text" class="form-control" id="motif" placeholder="fleuris">
+
+
+      <label> Saison </label>
+        <select [(ngModel)]="addDressingData.saisons" class="custom-select">
+          <option value="ete">été</option>
+          <option value="hivers">Hivers</option>
+          <option value="automne">Automne</option>
+          <option value="printemps">Printemps</option>
+        </select>
+
+      <label for="commentaire">Commentaire</label>
+      <input [(ngModel)]="addDressingData.commentaire" type="text-area" class="form-control" id="commentaire" placeholder="commenter">
+
+      </div>
+      <div class="modal-footer">
+        <button (click)="addDressing()" type="button" class="btn btn-primary">Enregistrer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button  class="btn" type="button">Supprimer</button>
+</div>
+
+<div class="row mt-5" *ngIf="dressings">
+ <div class = "col-md-4 mb-3" *ngFor="let dressing of dressings">
+   <div class="card text-center">
+     <div class="card-body">
+       <h5 class="card-title">{{dressing.couleur}}</h5>
+       <p class = "card-text">{{dressing.commentaire}}</p>
+
+
+     </div>
+
+     <button (click)="openGame(game._id)">Open Game</button>
+   </div>
+ </div>
+</div>
