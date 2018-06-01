@@ -30,6 +30,19 @@ router.post('/adddressing', (req, res) =>{
     })
 })
 
+
+router.delete('/deleteAccount', (req, res, next) => {
+
+  User.deleteOne({email: userCurrent}, function (err, user){
+    if (err) return next(err);
+    if (user) {
+      console.log('ok')
+      userCurrent="";
+    }
+  });
+})
+
+
 router.get('/dressings', (req, res, next) => {
   console.log('ok')
   Dressing.find({userName: userCurrent}, function (err, dressings){

@@ -14,11 +14,13 @@ import { TokenInterceptorService } from './token-interceptor.service';
 import { HeaderComponent } from './header/header.component';
 import { ContentComponent } from './content/content.component';
 import { ArticleModeComponent } from './content/article-mode/article-mode.component';
-import { CompteComponent } from './content/compte/compte.component';
+import { CompteComponent } from './compte/compte.component';
 import { DressingComponent } from './dressing/dressing.component';
 import { FavorisComponent } from './content/favoris/favoris.component';
 import { ManqueIdeeComponent } from './content/manque-idee/manque-idee.component';
 import { DressingService } from './dressing.service';
+import { DeleteService } from './delete.service';
+
 
 
 @NgModule({
@@ -40,7 +42,7 @@ import { DressingService } from './dressing.service';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [AuthService, AuthGuard, EventService, DressingService,
+  providers: [AuthService, AuthGuard, EventService, DressingService, DeleteService,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,

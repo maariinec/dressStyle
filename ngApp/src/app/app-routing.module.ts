@@ -4,7 +4,7 @@ import { LoginComponent } from './login/login.component'
 import { RegisterComponent } from './register/register.component'
 import { AuthGuard } from './auth.guard';
 import { ArticleModeComponent } from './content/article-mode/article-mode.component';
-import { CompteComponent } from './content/compte/compte.component';
+import { CompteComponent } from './compte/compte.component';
 import { DressingComponent } from './dressing/dressing.component';
 import { FavorisComponent } from './content/favoris/favoris.component';
 import { ManqueIdeeComponent } from './content/manque-idee/manque-idee.component';

@@ -38,4 +38,7 @@ export class DressingComponent implements OnInit {
           err => console.log(err)
         )
       }
+
+
+
 }

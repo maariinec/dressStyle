@@ -24,7 +24,7 @@
       <div class="modal-body">
 
       <label for="photo">Photo</label><br>
-      <input [(ngModel)]="addDressingData.photo" type="file" name="img"><br>
+      <input [(ngModel)]="addDressingData.photo" type="text" name="img"><br>
 
       <label for="categorie">Catégorie</label>
       <input [(ngModel)]="addDressingData.categorie" type="text" class="form-control" id="categorie" placeholder="tee-shirt">
@@ -64,11 +64,7 @@
      <div class="card-body">
        <h5 class="card-title">{{dressing.couleur}}</h5>
        <p class = "card-text">{{dressing.commentaire}}</p>
-
-
      </div>
-
-     <button (click)="openGame(game._id)">Open Game</button>
    </div>
  </div>
 </div>
