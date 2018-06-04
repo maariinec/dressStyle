@@ -1,0 +1,14 @@
+<h1> DressStyle / Projet web 3</h1>
+<h2> Utilisation de l'application </h2>
+
+<ol>
+<li> Cloner le repository dans votre fichier en ligne de commande</li>
+<li> Après avoir récupéré le fichier: </li>
+<li> - faite npm install (dans le fichier ngApp et ensuite dans le fichier server)</li>
+<li> Les fichiers sont installé: express, mongodb .. </li>
+<li> pour continuer il faut lancer Angular et le server : </li>
+<Li> Sur le terminal: - ce mettre dans le dossier ngApp et taper: ng serve (angular ce mettra en route)</li>
+<li> - Ce mettre dans le dossier server et taper: node server pour le mettre en route</li>
+<li> Et pour finir dans googleChrome aller à url: http://localhost:4200/register </li>
+Voilà vous êtes sur l'application dressStyle. Il manque plus qu'à vous créer un compte et vous connecter.
+</ol>
