@@ -49,7 +49,7 @@
 
       </div>
       <div class="modal-footer">
-        <button (click)="addDressing()" type="button" class="btn btn-primary">Enregistrer</button>
+        <button (click)="addDressing()" type="button" class="btn btn-secondary">Enregistrer</button>
       </div>
     </div>
   </div>
@@ -70,15 +70,25 @@
      <div class="modal-dialog" role="document" *ngIf="selectedDressing">
        <div class="modal-content">
          <div class="modal-header">
-             <h5 class="card-title">{{selectedDressing.categorie}}</h5>
+             <h5 class="card-title mx-auto">{{selectedDressing.categorie}}</h5>
          </div>
          <div class="modal-body">
-             <img src="{{ selectedDressing.photo }}" style="width: 200px; height: 200px;">
-             <p>{{selectedDressing.saisons}}</p>
-             <p>{{selectedDressing.couleur}}</p>
-             <p>{{selectedDressing.motif}}</p>
-             <button class="btn" type="button">Modifier</button>
-         </div>
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6">
+                   <img src="{{ selectedDressing.photo }}" style="width: 200px; height: 200px;">
+                </div>
+                <div class="col-md-6">
+                   <u>Saison:</u><p> {{selectedDressing.saisons}}</p>
+                   <u>Couleur:</u><p> {{selectedDressing.couleur}}</p>
+                   <u>Motif:</u><p> {{selectedDressing.motif}}</p>
+                   <u>Commentaire:</u> <p> {{selectedDressing.commentaire}}</p>
+               </div>
+
+                   <button class="btn btn-secondary col-md-12" type="button">Modifier</button>
+               </div>
+             </div>
+           </div>
        </div>
      </div>
    </div>
