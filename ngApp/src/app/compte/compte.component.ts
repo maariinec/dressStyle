@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DeleteService } from '../delete.service';
+import { EditService } from '../edit.service';
 
 @Component({
   selector: 'app-compte',
@@ -12,9 +13,18 @@ export class CompteComponent implements OnInit {
   value: localStorage.getItem("toke")
 }
 
-  constructor(private _DeleteService: DeleteService) { }
+  userData = {
+    email: '',
+    password: ''
+  }
+
+  constructor(private _DeleteService: DeleteService, private _editService: EditService) { }
 
   ngOnInit() {
+    this._editService.getLoggedUser(this.token.value).subscribe(res => {
+      this.userData.email = res['email'];
+      this.userData.password = res['password'];
+    });
   }
 
   deleteAccount(){
@@ -23,5 +33,11 @@ export class CompteComponent implements OnInit {
       res => console.log(res),
       err => console.log(err),
   )}
+
+  updateUser() {
+    this._editService.editUser(this.token.value, this.userData).subscribe(res => {
+      console.log(res);
+    });
+  }
 
 }

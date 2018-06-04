@@ -30,19 +30,6 @@ router.post('/adddressing', (req, res) =>{
     })
 })
 
-
-router.delete('/deleteAccount', (req, res, next) => {
-
-  User.deleteOne({email: userCurrent}, function (err, user){
-    if (err) return next(err);
-    if (user) {
-      console.log('ok')
-      userCurrent="";
-    }
-  });
-})
-
-
 router.get('/dressings', (req, res, next) => {
   console.log('ok')
   Dressing.find({userName: userCurrent}, function (err, dressings){
@@ -85,6 +72,51 @@ router.post('/register', (req, res) => {
   })
 })
 
+router.put('/user/:email', (req, res, next) => {
+  User.findOneAndUpdate({ email: req.params.email }, req.body, (err, user)=> {
+    user.save((err, registeredUser) => {
+      if (err) {
+        console.log(err)
+      } else {
+        res.json(req.body);
+      }
+    })
+  })
+})
+
+router.get('/user/:email', (req, res, next) => {
+  User.findOne({ email: req.params.email }, (err, user) => {
+    if (err) return next(err);
+
+    if (user) {
+      res.json(user);
+    }
+  })
+})
+
+
+router.delete('/deleteCloth/:id', (req, res, next) => {
+
+  Dressing.findOneAndRemove({ _id: req.params.id }, function (err, dressing){
+    if (err) return next(err);
+    if (dressing) {
+      console.log('suppr');
+      res.json(dressing);
+    }
+  });
+});
+
+router.delete('/deleteAccount', (req, res, next) => {
+
+  User.deleteOne({email: userCurrent}, function (err, user){
+    if (err) return next(err);
+    if (user) {
+      console.log('ok')
+      userCurrent="";
+    }
+  });
+});
+
 router.post('/login', (req, res) => {
   let userData = req.body
   User.findOne({email: userData.email}, (err, user) => {
@@ -109,6 +141,6 @@ router.post('/login', (req, res) => {
 function authentificate(user, res){
   let payload = {subject: user.email}
   let token=jwt.sign(payload, 'secretKey')
-  res.status(200).send(user)
+  res.status(200).send(user);
 }
 module.exports = router;

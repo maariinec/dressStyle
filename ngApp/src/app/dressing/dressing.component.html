@@ -23,8 +23,8 @@
       </div>
       <div class="modal-body">
 
-      <label for="photo">Photo</label><br>
-      <input [(ngModel)]="addDressingData.photo" type="text" name="img"><br>
+      <label for="photo">Photo URL</label><br>
+      <input [(ngModel)]="addDressingData.photo" type="text" id="photo" name="img"><br>
 
       <label for="categorie">Catégorie</label>
       <input [(ngModel)]="addDressingData.categorie" type="text" class="form-control" id="categorie" placeholder="tee-shirt">
@@ -54,16 +54,32 @@
     </div>
   </div>
 </div>
-
-<button  class="btn" type="button">Supprimer</button>
 </div>
 
 <div class="row mt-5" *ngIf="dressings">
  <div class = "col-md-4 mb-3" *ngFor="let dressing of dressings">
    <div class="card text-center">
-     <div class="card-body">
-       <h5 class="card-title">{{dressing.couleur}}</h5>
-       <p class = "card-text">{{dressing.commentaire}}</p>
+     <div class="card-body" data-toggle="modal" (click)="onSelect(dressing)" data-target="#modal">
+       <h5 class="card-title">{{dressing.categorie}}</h5>
+       <img src="{{dressing.photo}}" style="width: 200px; height: 200px;">
+     </div>
+     <button (click)="deleteCloth(dressing['_id'])" class="btn" type="button">Supprimer</button>
+
+   </div>
+   <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog" role="document" *ngIf="selectedDressing">
+       <div class="modal-content">
+         <div class="modal-header">
+             <h5 class="card-title">{{selectedDressing.categorie}}</h5>
+         </div>
+         <div class="modal-body">
+             <img src="{{ selectedDressing.photo }}" style="width: 200px; height: 200px;">
+             <p>{{selectedDressing.saisons}}</p>
+             <p>{{selectedDressing.couleur}}</p>
+             <p>{{selectedDressing.motif}}</p>
+             <button class="btn" type="button">Modifier</button>
+         </div>
+       </div>
      </div>
    </div>
  </div>

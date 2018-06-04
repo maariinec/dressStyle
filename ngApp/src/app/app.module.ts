@@ -20,6 +20,7 @@ import { FavorisComponent } from './content/favoris/favoris.component';
 import { ManqueIdeeComponent } from './content/manque-idee/manque-idee.component';
 import { DressingService } from './dressing.service';
 import { DeleteService } from './delete.service';
+import { EditService } from './edit.service';
 
 
 
@@ -42,7 +43,7 @@ import { DeleteService } from './delete.service';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [AuthService, AuthGuard, EventService, DressingService, DeleteService,
+  providers: [AuthService, AuthGuard, EventService, DressingService, DeleteService, EditService,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,

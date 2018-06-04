@@ -1,4 +1,28 @@
 <app-header></app-header>
 
+<h2> Mon compte </h2>
 
-<button (click)="deleteAccount()"> Supprimer mon compte </button>
+<button class="btn" type="button" data-toggle="modal" data-target="#exampleModal">Modifier</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modifier</h5>
+        <form class="form">
+            <label for="uname1">Username</label>
+            <input type="text" [(ngModel)]="userData.email" name="email" class="form-control rounded-0" required>
+            <label>Password</label>
+            <input type="password" [(ngModel)]="userData.password" name="password" class="form-control rounded-0"  required>
+          <button type="button" (click)="updateUser()" class="btn btn-primary float-right">Save</button>
+        </form>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<button (click)="deleteAccount()" class="btn" type="button" data-toggle="modal" data-target="#exampleModal">Supprimer</button>
