@@ -85,7 +85,8 @@
                    <u>Commentaire:</u> <p> {{selectedDressing.commentaire}}</p>
                </div>
 
-                   <button class="btn btn-secondary col-md-12" type="button">Modifier</button>
+                   <button class="btn btn-secondary col-md-12" type="button" data-toggle="modal" data-target="#modif" >Modifier</button>
+
                </div>
              </div>
            </div>
@@ -93,4 +94,44 @@
      </div>
    </div>
  </div>
+</div>
+
+<div class="modal fade" id="modif" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document" *ngIf="selectedDressing">
+    <div class="modal-content">
+      <div class="modal-body">
+         <div class="container">
+           <div class="row">
+             <div class="modal-body">
+
+             <label for="categorie">Catégorie</label>
+             <input [(ngModel)]="addDressingData.categorie" type="text" class="form-control" id="categorie" placeholder="tee-shirt">
+
+             <label for="couleur">Couleur</label>
+             <input [(ngModel)]="addDressingData.couleur" type="text" class="form-control" id="couleur" placeholder="rouge">
+
+             <label for="motif">Motif</label>
+             <input [(ngModel)]="addDressingData.motif" type="text" class="form-control" id="motif" placeholder="fleuris">
+
+
+             <label> Saison </label>
+               <select [(ngModel)]="addDressingData.saisons" class="custom-select">
+                 <option value="ete">été</option>
+                 <option value="hivers">Hivers</option>
+                 <option value="automne">Automne</option>
+                 <option value="printemps">Printemps</option>
+               </select>
+
+             <label for="commentaire">Commentaire</label>
+             <input [(ngModel)]="addDressingData.commentaire" type="text-area" class="form-control" id="commentaire" placeholder="commenter">
+
+             </div>
+             <div class="modal-footer">
+               <button (click)="deleteCloth(dressing['_id']); addDressing(); " type="button" class="btn btn-secondary">Enregistrer</button>
+             </div>
+         </div>
+       </div>
+   </div>
+ </div>
+</div>
 </div>

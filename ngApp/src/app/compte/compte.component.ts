@@ -27,14 +27,14 @@ export class CompteComponent implements OnInit {
     });
   }
 
-  deleteAccount(){
+  deleteAccount(){  //function delete account for user
     this._DeleteService.deletAccount(this.token)
     .subscribe(
       res => console.log(res),
       err => console.log(err),
   )}
 
-  updateUser() {
+  updateUser() { // function edit account
     this._editService.editUser(this.token.value, this.userData).subscribe(res => {
       console.log(res);
     });

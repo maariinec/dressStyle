@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  loginUser () {
+  loginUser () { // function to log in and check if the user is in the database
     this._auth.loginUser(this.loginUserData)
     .subscribe(
       res => {

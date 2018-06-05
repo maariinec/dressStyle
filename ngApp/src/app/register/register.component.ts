@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  registerUser() {
+  registerUser() { // function that allows the user to create an account and and be referred to application
     this._auth.registerUser(this.registerUserData)
     .subscribe(
       res => {

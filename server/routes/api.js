@@ -4,11 +4,11 @@ const mongoose = require('mongoose');
 const User = require('../models/user');
 const Dressing = require('../models/dressing')
 const jwt = require('jsonwebtoken')
-const db = "mongodb://marine:Aviateur1@ds141720.mlab.com:41720/dressstyle";
+const db = "mongodb://marine:Aviateur1@ds141720.mlab.com:41720/dressstyle"; // connection in mlab database
 var userCurrent="";
-// mongoose.Promise = global.Promise;
 
-mongoose.connect(db, function(err){
+
+mongoose.connect(db, function(err){ // connection to the database
     if(err){
         console.error('Error! ' + err)
     } else {
@@ -16,7 +16,7 @@ mongoose.connect(db, function(err){
     }
 });
 
-router.post('/adddressing', (req, res) =>{
+router.post('/adddressing', (req, res) =>{ // adding clothing to the database
     let addDressingData=req.body
     let dressing= new Dressing(addDressingData)
     dressing.userName= userCurrent;
@@ -30,7 +30,7 @@ router.post('/adddressing', (req, res) =>{
     })
 })
 
-router.get('/dressings', (req, res, next) => {
+router.get('/dressings', (req, res, next) => { // verify dressings for user
   console.log('ok')
   Dressing.find({userName: userCurrent}, function (err, dressings){
     if (err) return next(err);
@@ -58,7 +58,7 @@ function verifyToken(req, res, next) {
   next()
 }
 
-router.post('/register', (req, res) => {
+router.post('/register', (req, res) => { // adding user to database
   let userData = req.body
   let user = new User(userData)
   user.save((err, registeredUser) => {
@@ -72,7 +72,7 @@ router.post('/register', (req, res) => {
   })
 })
 
-router.put('/user/:email', (req, res, next) => {
+router.put('/user/:email', (req, res, next) => { // edit user to database email and password
   User.findOneAndUpdate({ email: req.params.email }, req.body, (err, user)=> {
     user.save((err, registeredUser) => {
       if (err) {
@@ -84,7 +84,7 @@ router.put('/user/:email', (req, res, next) => {
   })
 })
 
-router.get('/user/:email', (req, res, next) => {
+router.get('/user/:email', (req, res, next) => {// edit user to database
   User.findOne({ email: req.params.email }, (err, user) => {
     if (err) return next(err);
 
@@ -95,7 +95,7 @@ router.get('/user/:email', (req, res, next) => {
 })
 
 
-router.delete('/deleteCloth/:id', (req, res, next) => {
+router.delete('/deleteCloth/:id', (req, res, next) => { // delete to cloth for id in database
 
   Dressing.findOneAndRemove({ _id: req.params.id }, function (err, dressing){
     if (err) return next(err);
@@ -106,7 +106,7 @@ router.delete('/deleteCloth/:id', (req, res, next) => {
   });
 });
 
-router.delete('/deleteAccount', (req, res, next) => {
+router.delete('/deleteAccount', (req, res, next) => { // delete account in database
 
   User.deleteOne({email: userCurrent}, function (err, user){
     if (err) return next(err);
@@ -117,7 +117,7 @@ router.delete('/deleteAccount', (req, res, next) => {
   });
 });
 
-router.post('/login', (req, res) => {
+router.post('/login', (req, res) => { // verify to user exist in database for connect in application
   let userData = req.body
   User.findOne({email: userData.email}, (err, user) => {
     if (err) {
@@ -138,7 +138,7 @@ router.post('/login', (req, res) => {
   })
 })
 
-function authentificate(user, res){
+function authentificate(user, res){ // authentificate in database
   let payload = {subject: user.email}
   let token=jwt.sign(payload, 'secretKey')
   res.status(200).send(user);

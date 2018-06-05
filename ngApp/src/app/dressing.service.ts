@@ -11,11 +11,11 @@ export class DressingService {
   constructor(private http: HttpClient) { }
 
 
-  addDressing(dressing){
+  addDressing(dressing){ // add a new cloth in database
     return this.http.post(this._adddressingUrl, dressing);
   }
 
-  getDressingByName(name){
+  getDressingByName(name){ // 
     return this.http.get(this._dressingUrl, name);
   }
 }

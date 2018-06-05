@@ -7,11 +7,11 @@ export class EditService {
 
   constructor(private http: HttpClient) { }
 
-  getLoggedUser(email) {
+  getLoggedUser(email) { // function for get logged user (id)
     return this.http.get(this._editUrl + email);
   }
 
-  editUser(email, userData) {
+  editUser(email, userData) { // edit account user email
     return this.http.put(this._editUrl + email, userData);
   }
 

@@ -12,12 +12,8 @@ import { AuthService } from './auth.service';
 import { EventService } from './event.service';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { HeaderComponent } from './header/header.component';
-import { ContentComponent } from './content/content.component';
-import { ArticleModeComponent } from './content/article-mode/article-mode.component';
 import { CompteComponent } from './compte/compte.component';
 import { DressingComponent } from './dressing/dressing.component';
-import { FavorisComponent } from './content/favoris/favoris.component';
-import { ManqueIdeeComponent } from './content/manque-idee/manque-idee.component';
 import { DressingService } from './dressing.service';
 import { DeleteService } from './delete.service';
 import { EditService } from './edit.service';
@@ -30,12 +26,8 @@ import { EditService } from './edit.service';
     LoginComponent,
     RegisterComponent,
     HeaderComponent,
-    ContentComponent,
-    ArticleModeComponent,
     CompteComponent,
     DressingComponent,
-    FavorisComponent,
-    ManqueIdeeComponent
     ],
   imports: [
     BrowserModule,

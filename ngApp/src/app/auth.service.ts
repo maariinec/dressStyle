@@ -11,15 +11,15 @@ export class AuthService {
   constructor(private http: HttpClient,
               private _router: Router) { }
 
-  registerUser(user) {
+  registerUser(user) { // function for register send a new user in database
     return this.http.post<any>(this._registerUrl, user)
   }
 
-  loginUser(user) {
+  loginUser(user) { // function for login connection in database
     return this.http.post<any>(this._loginUrl, user)
   }
 
-  logoutUser() {
+  logoutUser() { // deconneted user in database
     localStorage.removeItem('toke')
     this._router.navigate(['/login'])
   }

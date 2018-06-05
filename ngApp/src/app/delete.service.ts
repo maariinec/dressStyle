@@ -10,11 +10,11 @@ export class DeleteService {
 
   constructor(private http: HttpClient) { }
 
-  deletAccount(name){
+  deletAccount(name){  // function for delete account send in database
     return this.http.delete(this._deleteUrl, name);
   }
 
-  deletCloth(dressingId){
+  deletCloth(dressingId){ // function for delete cloth send in database
     return this.http.delete(this._deleteUrlCloth + dressingId);
   }
 }

@@ -23,7 +23,7 @@ export class DressingComponent implements OnInit {
     this.getUserDressings()
   }
 
-  addDressing(){
+  addDressing(){ //function to add clothes to the database
     this._dressingService.addDressing(this.addDressingData)
     .subscribe(
       res => console.log(res),
@@ -31,14 +31,14 @@ export class DressingComponent implements OnInit {
     )}
 
 
-    getUserDressings(){
+    getUserDressings(){// function to check and display the user's clothing
       this._dressingService.getDressingByName(this.token)
         .subscribe(
           res => {this.dressings=res; console.log(res)},
           err => console.log(err)
         )}
 
-    deleteCloth(dressingId){
+    deleteCloth(dressingId){ // function delete a cloth for user
       this._DeleteService.deletCloth(dressingId)
       .subscribe(
         res => {

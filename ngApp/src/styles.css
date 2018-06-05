@@ -2,6 +2,11 @@
 body{
   font-family: Verdana, sans-serif;
 }
+
+.navbar{
+  background-color: #b0b0b0;
+}
+
 h2{
   color: #f7cac9;
   text-align: center;
@@ -12,7 +17,8 @@ button{
 }
 
 a{
-  color: #7f7e7e;
+  color: white;
+  text-align: center;
 }
 ul li .nav-link:hover{
   text-decoration: underline overline #f7cac9;
@@ -29,4 +35,39 @@ nav .container{
 
 h2{
   margin-top: 5%;
+}
+
+#modification{
+  margin-left: 41%;
+  margin-top: 10%;
+}
+.nav{
+  background-color: #b0b0b0;
+  margin-left: -30%;
+  margin-right: -165px;
+}
+#suppression{
+  margin-top: 10%;
+}
+#logout, #login, #register{
+  color: white;
+}
+#navbarSupportedContent{
+  margin-left: 69%;
+}
+
+@media screen and (min-width: 200px) and (max-width: 640px) {
+
+  .imglogo{
+    width: 50%;
+     margin-right: 30%;
+  }
+  #modification{
+    margin-left: 20%;
+  }
+
+  .nav .nav-link{
+    margin-left: -21%;
+  }
+
 }
